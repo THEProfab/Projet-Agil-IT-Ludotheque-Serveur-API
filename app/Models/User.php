@@ -30,9 +30,6 @@ class User extends Authenticatable implements JWTSubject {
     protected $hidden = [
         'password',
         'remember_token',
-        'created_at',
-        'updated_at',
-        'email_verified_at'
     ];
 
     /**
@@ -43,6 +40,20 @@ class User extends Authenticatable implements JWTSubject {
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    function commentaires() {
+        return $this->hasMany(Commentaire::class);
+    }
+
+    function creation() {
+        return $this->hasMany(Jeu::class);
+    }
+
+    function ludo_perso() {
+        return $this->belongsToMany(Jeu::class, 'achats')
+            ->as('achat')
+            ->withPivot('prix', 'lieu', 'date_achat');
+    }
 
     public function getJWTIdentifier() {
         return $this->id;
