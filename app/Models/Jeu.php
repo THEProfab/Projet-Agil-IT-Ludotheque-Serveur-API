@@ -19,7 +19,7 @@ class Jeu extends Model {
     const CATEGORY = ['Cartes à  jouer', 'Escape Game', 'Jeu d\'Ambiance', 'Jeu de Cartes', 'Jeu de dés', 'Jeu de lettres', 'Jeu de logique', 'Jeu de pions', 'Jeu de plateau'
         , 'jeu de rôle', 'jeu de tuiles', 'Murder Party'];
 
-    protected $fillable = ['nom', 'description', 'regles', 'langue',
+    protected $fillable = ['nom', 'description', 'regles', 'langue', 'poids',
         'url_media', 'age', 'nombre_joueurs', 'categorie', 'duree'];
 
     function createur() {
@@ -46,5 +46,9 @@ class Jeu extends Model {
 
     function commentaires() {
         return $this->hasMany(Commentaire::class);
+    }
+
+    function user() {
+        return $this->belongsTo(User::class);
     }
 }

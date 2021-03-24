@@ -25,3 +25,10 @@ Route::group([
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::get('/user-profile', [AuthController::class, 'userProfile']);
 });
+
+Route::group([
+    'prefix' => 'jeux'
+], function ($router) {
+    Route::get('', [\App\Http\Controllers\JeuController::class, 'index']);
+});
+

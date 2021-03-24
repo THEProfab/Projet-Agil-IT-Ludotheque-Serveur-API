@@ -33,7 +33,6 @@ class JeuFactory extends Factory {
             'user_id' => $this->faker->randomElement($user_ids),
             'theme_id' => $this->faker->randomElement($theme_ids),
             'editeur_id' => $this->faker->randomElement($editeurs_ids),
-//            'url_media' => 'https://picsum.photos/seed/'.$this->faker->text(5).'/200/200',
             'duree' => $this->faker->randomElement(['- de 10 Minute', 'Entre 10 et 20 Min', 'Une demi heure', 'une heure', 'Plus d\'une heure']),
             'langue' => $this->faker->randomElement(['français', 'Anglais', 'Allemand']),
             'nombre_joueurs' => $this->faker->numberBetween('2', '10' ),

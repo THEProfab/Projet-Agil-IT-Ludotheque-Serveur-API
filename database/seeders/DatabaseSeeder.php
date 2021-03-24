@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder {
      */
     public function run() {
         User::factory()->create([
-            'name' => 'Robert Duchmol',
+            'nom' => 'Duchmol',
+            'prenom' => 'Robert',
             'email' => 'robert.duchmol@domain.fr',
             'email_verified_at' => now(),
             'password' => '$2y$10$TKaVnYUC6y/IPQk8Gjaw7uBB.1xqNnqi/n4xo5uBH6Eok6ZrEpQdC', // secret00 je crois

@@ -55,6 +55,10 @@ class User extends Authenticatable implements JWTSubject {
             ->withPivot('prix', 'lieu', 'date_achat');
     }
 
+    function jeux() {
+        return $this->hasMany(Jeu::class);
+    }
+
     public function getJWTIdentifier() {
         return $this->id;
     }
