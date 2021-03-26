@@ -36,6 +36,7 @@ class JeuFactory extends Factory {
             'duree' => $this->faker->randomElement(['- de 10 Minute', 'Entre 10 et 20 Min', 'Une demi heure', 'une heure', 'Plus d\'une heure']),
             'langue' => $this->faker->randomElement(['français', 'Anglais', 'Allemand']),
             'nombre_joueurs' => $this->faker->numberBetween('2', '10' ),
+            'poids' => $this->faker->randomFloat(3, .1, 5),
             'age' => $this->faker->randomElement(['4', '6', '10', '14', '18']),
             'categorie' => $this->faker->randomElement(['Cartes à  jouer', 'Escape Game', 'Jeu d\'Ambiance', 'Jeu de Cartes', 'Jeu de dés', 'Jeu de lettres', 'Jeu de logique', 'Jeu de pions', 'Jeu de plateau'
                 , 'jeu de rôle', 'jeu de tuiles', 'Murder Party']),

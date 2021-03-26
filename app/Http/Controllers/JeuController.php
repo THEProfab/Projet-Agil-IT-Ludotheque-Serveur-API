@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\jeuxDetailsResource;
 use App\Http\Resources\jeuxResource;
 use App\Models\Jeu;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use MarcinOrlowski\ResponseBuilder\ResponseBuilder;
 
 class JeuController extends Controller {
@@ -45,4 +50,86 @@ class JeuController extends Controller {
 
         return ResponseBuilder::success(jeuxResource::collection($jeux), 200, null);
     }
+
+    function show($id) {
+        $jeu = Jeu::findOrFail($id);
+        return ResponseBuilder::success(new jeuxDetailsResource($jeu), 200, null);
+    }
+
+    function store(Request $request) {
+        Log::info('Requête : '.json_encode($request));
+        $validator = Validator::make($request->all(),
+            [
+                'nom' => 'required|unique:jeux|between:10,100',
+                'description' => 'required',
+                'theme' => 'required',
+                'editeur' => 'required',
+                'langue' => 'required',
+                'age' => 'required|numeric|between:1,16',
+                'poids' => 'numeric|between:.1,5.0',
+                'nombre_joueurs' => 'numeric|between:2,8'
+            ],
+            [
+                'nom.required' => 'Le nom est requis',
+                'nom.unique' => 'Le nom doit être unique',
+                'description.required' => 'La description est requise',
+                'theme.required' => 'Le thème est requis',
+                'editeur.required' => 'L\'éditeur est requis',
+                'langue.required' => 'la langues est requise',
+                'age.required' => 'l\'age est requis',
+                'numeric' => ':attribute est un entier',
+                'between' => ':attribute doit être entre :min et :max',
+            ]
+        );
+        if ($validator->fails()) {
+            Log::info($validator->errors()->toArray());
+            $tab = [];
+            foreach ($validator->errors()->messages() as $messages) {
+                foreach ($messages as $error) {
+                    $tab[] = $error;
+                }
+            }
+            return ResponseBuilder::error(422, null, $tab);
+        }
+        $jeu = new Jeu();
+        $jeu->nom = $request->nom;
+        $jeu->description = $request->description;
+        $jeu->theme_id = $request->theme;
+        $jeu->user_id = Auth::user()->id;
+        $jeu->editeur_id = $request->editeur;
+        $jeu->url_media = $request->get('url_media','images/no-image.png');
+        $jeu->langue = $request->langue;
+        $jeu->age = $request->age;
+        $jeu->poids = $request->poids;
+        $jeu->nombre_joueurs = $request->nombre_joueurs;
+        $jeu->duree = $request->duree;
+        $jeu->regles = $request->regles;
+        $jeu->categorie = $request->categorie;
+
+        /*
+         *  Code en attente traitement de l'upload d'image
+         *
+                   if($request->file('image') !== null){
+                    $file = $request->file('image');
+                    $extension = $file->getClientOriginalExtension();
+
+                    // File upload location
+                    $location = public_path().'/images/';
+                    $filename = uniqid().'.'.$extension;
+
+                    // Upload file
+                    $file->move($location, $filename);
+
+                    $jeu->url_media = '/imagesjeux/'.$filename;
+                );
+        */
+
+        $jeu->mecaniques()->attach($request->avec_mecaniques);
+        $jeu->save();
+
+        return ResponseBuilder::success(new jeuxResource($jeu));
+
+    }
+
+
 }

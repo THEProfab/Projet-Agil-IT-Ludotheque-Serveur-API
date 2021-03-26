@@ -41,10 +41,11 @@ class DatabaseSeeder extends Seeder {
             $nbMecs = $faker->numberBetween(1, 3);
             $mecs = $faker->randomElements($mecanisque_ids, $nbMecs);
             $jeu->mecaniques()->attach($mecs);
-            $nbAchats = $faker->numberBetween(2, 5);
+            $nbAchats = $faker->numberBetween(2, count($user_ids));
             $achat_ids = $faker->randomElements($user_ids, $nbAchats);
             for ($i = 0; $i < $nbAchats; $i++) {
-                $jeu->acheteurs()->attach($achat_ids[$i], ['lieu' => $faker->word(),
+                $jeu->acheteurs()->attach($achat_ids[$i], [
+                    'lieu' => $faker->word(),
                     'prix' => $faker->randomFloat(2, 50, 250),
                     'date_achat' => $faker->dateTimeInInterval(
                         $startDate = '-6 months',
@@ -54,6 +55,6 @@ class DatabaseSeeder extends Seeder {
             }
             $jeu->save();
         }
-        Commentaire::factory(100)->create();
+        Commentaire::factory(200)->create();
     }
 }

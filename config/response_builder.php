@@ -30,6 +30,7 @@ return [
         400 => "Requête incorrecte",
         401 => "Authentification invalide",
         403 => "Requête interdite",
+        422 => "Requête incomplète",
         200 => "Request Ok",
         204 => "Requête vide bien exécutée"
 	],

@@ -16,16 +16,21 @@ class AuthController extends Controller {
 
     public function register(Request $request) {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|between:2,100',
+            'nom' => 'required|string|between:2,100',
+            'prenom' => 'required|string|between:2,100',
+            'pseudo' => 'required|string|between:2,100',
             'email' => 'required|string|email|unique:users',
             'password' => 'required|min:6',
         ], [
             'email.required' => 'We need to know your email address!',
             'email.email' => 'not valid email address format',
             'email.unique' => 'email address already used',
-            'name.required' => 'We need to know your name',
+            'nom.required' => 'We need to know your lastname',
+            'prenom.required' => 'We need to know your firstname',
+            'pseudo.required' => 'We need to know your pseudo',
             'password.required' => 'Password is required',
             'password.min' => 'Password must contains 6 letters min',
+            'between'=> ':attribute doit contenir entre :min et :max '
         ]);
 
         if ($validator->fails()) {
