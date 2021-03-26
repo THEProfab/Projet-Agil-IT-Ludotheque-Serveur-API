@@ -27,17 +27,9 @@ Route::group([
     Route::get('/user-profile', [AuthController::class, 'userProfile']);
 });
 
-//Route::post('/jeux', [JeuController::class, 'store'])->middleware('api') ;
 Route::middleware('auth:api')->post('/jeux', [JeuController::class, 'store']);
 Route::get('/jeux', [JeuController::class, 'index']);
 Route::get('/jeux/{id}', [JeuController::class, 'show']);
-/*
- * Route::group([
-    'prefix' => 'jeux'
-], function ($router) {
-    Route::get('', [JeuController::class, 'index']);
-});
-*/
 
 Route::post('/commentaires', [\App\Http\Controllers\CommentaireController::class, 'store'])->middleware('api') ;
 Route::delete('/commentaires/{id}', [\App\Http\Controllers\CommentaireController::class, 'destroy'])->middleware('api') ;

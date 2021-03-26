@@ -39,7 +39,7 @@ class JeuController extends Controller {
             $jeux = Jeu::join('commentaires', 'jeux.id', '=', 'commentaires.jeu_id')
                 ->groupBy('commentaires.jeu_id')
                 ->addSelect(['jeux.*', DB::raw('AVG(note) as moyenne_notes')])
-                ->orderBy('moyenne_notes', 'desc')->limit(5)->get();
+                ->orderBy('moyenne_notes', 'desc')->get();
         } elseif (isset($sort) && $sort == 'nom') {
             $jeux = Jeu::orderBy('nom')->get();
         } elseif (isset($page)) {
