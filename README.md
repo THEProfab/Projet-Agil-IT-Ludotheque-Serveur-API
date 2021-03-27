@@ -16,6 +16,7 @@ il faut créer un fichier database/datas/ludotheque.sqlite
 ```shell
 mkdir -p database/datas
 touch database/datas/ludotheque.sqlite
+composer update
 php artisan migrate:fresh 
 php artisan db:seed
 ```
@@ -56,7 +57,7 @@ php artisan db:seed
     openssl rsa -passin pass:"un secret" -pubout -in storage/jwt/private.pem -out storage/jwt/public.pem
     ```
 
-    A ajouter dans le fichier `.env`
+    A ajouter à la fin du fichier `.env`
     ```shell
     JWT_ALGO=RS256
     JWT_PUBLIC_KEY=jwt/public.pem
@@ -64,7 +65,7 @@ php artisan db:seed
     JWT_PASSPHRASE="un secret"
     ```
 
-    A ajouter dans le fichier `config/jwt.php`
+    Vérifier la présence des lignes suivantes dans le fichier `config/jwt.php` à l'intérieur du tableau 'keys'
 
     ```shell
     'public' => 'file://'.storage_path(env('JWT_PUBLIC_KEY')),
@@ -72,7 +73,7 @@ php artisan db:seed
     ```
 
 
-Modification de la classe modèle `User`
+Vérifier la présence des lignes suivantes dans le fichier `app/Models/User`
 
 ```php
 <?php 
@@ -95,7 +96,9 @@ class User extends Authenticatable implements JWTSubject
 }
 ```
 
-Modification du fichier config/auth.php
+*La fonction `getJWTCustomClaims` n'est pas à compléter*
+
+Vérifier la présence des lignes suivantes dans le fichier `config/auth.php`
 
 ```php
 'defaults' => [
@@ -110,15 +113,27 @@ Modification du fichier config/auth.php
 ],
 ```
 
-    Création d'un contrôleur
-    
-    ```shell
-    php artisan make:controller AuthController
-    ```
+Création d'un contrôleur
 
+```shell
+php artisan make:controller AuthController
+```
 
+Démarrer le serveur :
+
+`php artisan serve`
 
 ## Les requêtes
+
+Pour tester les requêtes, l'utilisation d'un outil est recomandé. 
+
+Voici des exemples :
+
+- [Advanced REST client](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo?hl=fr) extension pour chrome
+- [RESTED](https://addons.mozilla.org/fr/firefox/addon/rested/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search) extension pour firefox
+- [Postman](https://www.postman.com/) Logiciel multi OS (très performant, très professionel mais nécessite une création de compte)
+
+Toutes les requêtes commence par : `http://127.0.0.1:8000/api`
 
 ### Les requêtes d'authentification
 
