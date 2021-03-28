@@ -27,6 +27,7 @@ php artisan db:seed
 
 *   Format des réponses API
     
+    ** déjà fait **
     ```shell
     composer require marcin-orlowski/laravel-api-response-builder
     ```
@@ -42,6 +43,7 @@ php artisan db:seed
 
 *   Authentification
 
+    ** déjà fait **
     ```shell
     composer require tymon/jwt-auth
     ```
@@ -50,6 +52,7 @@ php artisan db:seed
     php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
     ```
 
+    ** A FAIRE **
     ```shell
     php artisan jwt:secret
     mkdir -p storage/jwt
@@ -57,7 +60,7 @@ php artisan db:seed
     openssl rsa -passin pass:"un secret" -pubout -in storage/jwt/private.pem -out storage/jwt/public.pem
     ```
 
-    A ajouter à la fin du fichier `.env`
+    ** A FAIRE ** A ajouter à la fin du fichier `.env`
     ```shell
     JWT_ALGO=RS256
     JWT_PUBLIC_KEY=jwt/public.pem
@@ -113,6 +116,7 @@ Vérifier la présence des lignes suivantes dans le fichier `config/auth.php`
 ],
 ```
 
+** déjà fait **
 Création d'un contrôleur
 
 ```shell
