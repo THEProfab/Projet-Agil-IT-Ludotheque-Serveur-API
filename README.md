@@ -1,7 +1,15 @@
 
 ## Base de données
 
-Modifications dans le fichier `.env`.
+**A FAIRE**
+
+
+```shell
+cp .env.example .env
+```
+
+
+Modifications dans le fichier `.env`. **(déjà fait)**
 
 ```shell
 DB_CONNECTION=sqlite
@@ -11,7 +19,10 @@ DB_PORT=3306
 
 il faut créer un fichier database/datas/ludotheque.sqlite
 
-## Pour mettre en place la base de données
+## Pour mettre en place la base de données 
+
+**A FAIRE**
+
 
 ```shell
 mkdir -p database/datas
@@ -25,9 +36,9 @@ php artisan db:seed
 
 ## Dépendances
 
-*   Format des réponses API
+*   Format des réponses API **(déjà fait)**
     
-    ** déjà fait **
+    
     ```shell
     composer require marcin-orlowski/laravel-api-response-builder
     ```
@@ -41,9 +52,8 @@ php artisan db:seed
     ```
 
 
-*   Authentification
+*   Authentification **(déjà fait)**
 
-    ** déjà fait **
     ```shell
     composer require tymon/jwt-auth
     ```
@@ -52,7 +62,7 @@ php artisan db:seed
     php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
     ```
 
-    ** A FAIRE **
+    **A FAIRE**
     ```shell
     php artisan jwt:secret
     mkdir -p storage/jwt
@@ -60,7 +70,8 @@ php artisan db:seed
     openssl rsa -passin pass:"un secret" -pubout -in storage/jwt/private.pem -out storage/jwt/public.pem
     ```
 
-    ** A FAIRE ** A ajouter à la fin du fichier `.env`
+    A ajouter à la fin du fichier `.env` **(déjà fait)**
+
     ```shell
     JWT_ALGO=RS256
     JWT_PUBLIC_KEY=jwt/public.pem
@@ -116,8 +127,8 @@ Vérifier la présence des lignes suivantes dans le fichier `config/auth.php`
 ],
 ```
 
-** déjà fait **
-Création d'un contrôleur
+
+Création d'un contrôleur **(déjà fait)**
 
 ```shell
 php artisan make:controller AuthController
