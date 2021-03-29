@@ -2,11 +2,11 @@
 
 ## Sommaire
 
-Pour commencer voici la [Liste des commandes](#listes-des-commandes-à-exécuter-dans-lordre).
+Pour commencer, voici la [Liste des commandes](#listes-des-commandes-à-exécuter-dans-lordre).
 
-Si vous le souhaitez vous pouvez consultez [les explications](#les-explications).
+Si vous le souhaitez vous pouvez consulter [les explications](#les-explications).
 
-Enfin des exemples et conseil se trouve [en bas de cette page](#les-requêtes-pour-utiliser-lapi).
+Enfin des exemples et des conseils se trouvent [en bas de cette page](#les-requêtes-pour-utiliser-lapi).
 
 ## Listes des commandes à exécuter dans l'ordre
 
