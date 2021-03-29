@@ -1,4 +1,14 @@
-## Commandes à exécuter pour le projet tutoré 
+# API pour le projet tutoré
+
+## Sommaire
+
+Pour commencer voici la [Liste des commandes](#Listes-des-commandes-à-exécuter-dans-l'ordre).
+
+Si vous le souhaitez vous pouvez consultez [les explications](#Les explications).
+
+Enfin des exemples et conseil se trouve [en bas de cette page](#Les-requêtes-pour-utiliser-l'API).
+
+## Listes des commandes à exécuter dans l'ordre
 
 ```shell
 cp .env.example .env
@@ -11,6 +21,7 @@ composer update
 php artisan jwt:secret
 php artisan migrate:fresh 
 php artisan db:seed
+php artisan serve
 ```
 
 
@@ -19,9 +30,9 @@ php artisan db:seed
 > Si vous utilisez un mot de passe différent, il faut modifier la valeur de la variable `JWT_PASSPHRASE` 
 > dans le fichier `.env`.
 
+## Les explications
 
-
-## Base de données
+### Base de données
 
 **A FAIRE**
 
@@ -41,7 +52,7 @@ DB_PORT=3306
 
 il faut créer un fichier database/datas/ludotheque.sqlite
 
-## Pour mettre en place la base de données 
+### Pour mettre en place la base de données 
 
 **A FAIRE**
 
@@ -56,7 +67,7 @@ php artisan db:seed
 
 
 
-## Dépendances
+### Dépendances
 
 *   Format des réponses API **(déjà fait)**
     
@@ -160,7 +171,7 @@ Démarrer le serveur :
 
 `php artisan serve`
 
-## Les requêtes
+## Les requêtes pour utiliser l'API
 
 Pour tester les requêtes, l'utilisation d'un outil est recomandé. 
 
@@ -170,11 +181,11 @@ Voici des exemples :
 - [RESTED](https://addons.mozilla.org/fr/firefox/addon/rested/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search) extension pour firefox
 - [Postman](https://www.postman.com/) Logiciel multi OS (très performant, très professionel mais nécessite une création de compte)
 
-Toutes les requêtes commence par : `http://127.0.0.1:8000/api`
+Toutes les requêtes commence par : `http://127.0.0.1:8000/api` ou `http://localhost:8000/api` en fonction de votre OS.
 
 ### Les requêtes d'authentification
 
--   **GET** `/login` demande de connexion.
+-   **GET** `/auth/login` demande de connexion.
 
     -   Doit comporter les propriétes suivantes :
         ```
@@ -227,7 +238,7 @@ Toutes les requêtes commence par : `http://127.0.0.1:8000/api`
         }
         ```
 
--   **POST** `/register` demande d'enregistrement.
+-   **POST** `/auth/register` demande d'enregistrement.
 
     -   Doit comporter les propriétes suivantes :
     
@@ -257,7 +268,7 @@ Toutes les requêtes commence par : `http://127.0.0.1:8000/api`
         
         ou un erreur.
 
--   **POST** `/logout` demande de déconnexion.
+-   **POST** `/auth/logout` demande de déconnexion.
 
     -   Doit contenir un jeton valide dans l'entête
 
@@ -277,10 +288,10 @@ Toutes les requêtes commence par : `http://127.0.0.1:8000/api`
         
         ou une erreur.
 
--   **GET** `/refresh` demande de prolongation du jeton.
+-   **GET** `/auth/refresh` demande de prolongation du jeton.
     -   Doit contenir un jeton valide dans l'entête
 
--   **GET** `/user-profile` demande de profil.
+-   **GET** `/auth/user-profile` demande de profil.
 
     -   Doit contenir un jeton valide dans l'entête
 
