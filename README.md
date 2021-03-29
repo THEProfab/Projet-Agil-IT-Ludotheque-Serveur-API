@@ -1,3 +1,25 @@
+## Commandes à exécuter pour le projet tutoré 
+
+```shell
+cp .env.example .env
+mkdir -p storage/jwt
+openssl genrsa -passout pass:"un secret" -out storage/jwt/private.pem -aes256 4096
+openssl rsa -passin pass:"un secret" -pubout -in storage/jwt/private.pem -out storage/jwt/public.pem
+mkdir -p database/datas
+touch database/datas/ludotheque.sqlite
+composer update
+php artisan jwt:secret
+php artisan migrate:fresh 
+php artisan db:seed
+```
+
+
+>   Pour plus de sécurité, il faudrait utiliser un mot de passe différent pour `pass`.
+> 
+> Si vous utilisez un mot de passe différent, il faut modifier la valeur de la variable `JWT_PASSPHRASE` 
+> dans le fichier `.env`.
+
+
 
 ## Base de données
 
