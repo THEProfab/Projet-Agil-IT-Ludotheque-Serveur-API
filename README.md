@@ -278,6 +278,7 @@ Toutes les requêtes commence par : `http://127.0.0.1:8000/api`
         ou une erreur.
 
 -   **GET** `/refresh` demande de prolongation du jeton.
+    -   Doit contenir un jeton valide dans l'entête
 
 -   **GET** `/user-profile` demande de profil.
 
@@ -313,7 +314,7 @@ Toutes les requêtes commence par : `http://127.0.0.1:8000/api`
 
 -   **GET** `/jeux` demande de la liste des jeux.
 
-    -   Accepte les paramètre suivants :
+    -   Accepte les paramètres suivants :
     
         -   `user=id` : renvoie la liste des jeux ajoutés par l'utilisateur `id` dans la base de données,
         -   `theme=id` : renvoie la liste des jeux appartenant au thème ayant l'identification `id` dans la base de données,
