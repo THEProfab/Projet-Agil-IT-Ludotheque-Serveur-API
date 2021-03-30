@@ -174,7 +174,7 @@ Toutes les requêtes commence par : `http://127.0.0.1:8000/api`
 
 ### Les requêtes d'authentification
 
--   **GET** `/login` demande de connexion.
+-   **POST** `/login` demande de connexion.
 
     -   Doit comporter les propriétes suivantes :
         ```
@@ -723,6 +723,111 @@ Toutes les requêtes commence par : `http://127.0.0.1:8000/api`
 
     -   Doit contenir un jeton valide dans l'entête
     -   Renvoie la même chose que précédemment avec le jeu en moins
+
+
+## Les requêtes d'accès aux autres donnees
+
+-   **GET** `/mecanics` demande de la liste des mécaniques.
+
+    -   Renvoie
+
+        ```
+        {
+            "success": true,
+            "code": 200,
+            "locale": "fr",
+            "message": "Request Ok",
+            "data": {
+                "items": [
+                    {
+                        "id": 1,
+                        "nom": "Abstrait"
+                    },
+                    {
+                        "id": 2,
+                        "nom": "Humour"
+                    },
+                    {
+                        "id": 3,
+                        "nom": "Jeu de plateau"
+                    },
+                    {
+                        "id": 4,
+                        "nom": "Enquêtes & Mystères"
+                    },
+                    ...
+                ]
+            }
+        }
+       ```
+
+-   **GET** `/editeurs` demande de la liste des éditeurs.
+
+    -   Renvoie
+
+        ```
+        {
+            "success": true,
+            "code": 200,
+            "locale": "fr",
+            "message": "Request Ok",
+            "data": {
+                "items": [
+                    {
+                        "id": 1,
+                        "nom": "1-2-3-Games"
+                    },
+                    {
+                        "id": 2,
+                        "nom": "ADG"
+                    },
+                    {
+                        "id": 3,
+                        "nom": "Arkhane Asylum Publishing"
+                    },
+                    {
+                        "id": 4,
+                        "nom": "Bayard Jeux"
+                    },
+                    ...
+                ]
+            }
+        }
+       ```
+
+-   **GET** `/themes` demande de la liste des thèmes.
+
+    -   Renvoie
+
+        ```
+        {
+            "success": true,
+            "code": 200,
+            "locale": "fr",
+            "message": "Request Ok",
+            "data": {
+                "items": [
+                    {
+                        "id": 1,
+                        "nom": "Abstrait, lettres & mots"
+                    },
+                    {
+                        "id": 2,
+                        "nom": "Animaux & Nature"
+                    },
+                    {
+                        "id": 3,
+                        "nom": "Autres"
+                    },
+                    {
+                        "id": 4,
+                        "nom": "Cartoon & Dessin"
+                    },
+                    ...
+                ]
+            }
+        }
+       ```
 
 
 

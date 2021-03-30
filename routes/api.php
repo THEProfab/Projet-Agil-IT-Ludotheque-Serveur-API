@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\EditeursController;
 use App\Http\Controllers\JeuController;
+use App\Http\Controllers\MecaniquesController;
+use App\Http\Controllers\ThemesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -39,5 +42,10 @@ Route::post('/users/{id}/vente', [\App\Http\Controllers\UserController::class, '
 Route::get('/users/{id}', [\App\Http\Controllers\UserController::class, 'show'])->middleware('api') ->where('id', '[0-9]+');
 Route::put('/users/{id}', [\App\Http\Controllers\UserController::class, 'update'])->middleware('api')->where('id', '[0-9]+') ;
 
+Route::get('/mecanics', [MecaniquesController::class, 'index']);
+
+Route::get('/editeurs', [EditeursController::class, 'index']);
+
+Route::get('/themes', [ThemesController::class, 'index']);
 
 
