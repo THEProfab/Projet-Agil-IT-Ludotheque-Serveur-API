@@ -32,7 +32,8 @@ php artisan serve
 
 ## Les explications
 
-### Base de données
+
+## Base de données
 
 **A FAIRE**
 
@@ -52,7 +53,7 @@ DB_PORT=3306
 
 il faut créer un fichier database/datas/ludotheque.sqlite
 
-### Pour mettre en place la base de données 
+## Pour mettre en place la base de données 
 
 **A FAIRE**
 
@@ -67,7 +68,7 @@ php artisan db:seed
 
 
 
-### Dépendances
+## Dépendances
 
 *   Format des réponses API **(déjà fait)**
     
@@ -171,7 +172,7 @@ Démarrer le serveur :
 
 `php artisan serve`
 
-## Les requêtes pour utiliser l'API
+## Les requêtes
 
 Pour tester les requêtes, l'utilisation d'un outil est recomandé. 
 
@@ -181,11 +182,11 @@ Voici des exemples :
 - [RESTED](https://addons.mozilla.org/fr/firefox/addon/rested/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search) extension pour firefox
 - [Postman](https://www.postman.com/) Logiciel multi OS (très performant, très professionel mais nécessite une création de compte)
 
-Toutes les requêtes commence par : `http://127.0.0.1:8000/api` ou `http://localhost:8000/api` en fonction de votre OS.
+Toutes les requêtes commence par : `http://127.0.0.1:8000/api`
 
 ### Les requêtes d'authentification
 
--   **GET** `/auth/login` demande de connexion.
+-   **GET** `/login` demande de connexion.
 
     -   Doit comporter les propriétes suivantes :
         ```
@@ -238,7 +239,7 @@ Toutes les requêtes commence par : `http://127.0.0.1:8000/api` ou `http://local
         }
         ```
 
--   **POST** `/auth/register` demande d'enregistrement.
+-   **POST** `/register` demande d'enregistrement.
 
     -   Doit comporter les propriétes suivantes :
     
@@ -268,7 +269,7 @@ Toutes les requêtes commence par : `http://127.0.0.1:8000/api` ou `http://local
         
         ou un erreur.
 
--   **POST** `/auth/logout` demande de déconnexion.
+-   **POST** `/logout` demande de déconnexion.
 
     -   Doit contenir un jeton valide dans l'entête
 
@@ -288,10 +289,10 @@ Toutes les requêtes commence par : `http://127.0.0.1:8000/api` ou `http://local
         
         ou une erreur.
 
--   **GET** `/auth/refresh` demande de prolongation du jeton.
+-   **GET** `/refresh` demande de prolongation du jeton.
     -   Doit contenir un jeton valide dans l'entête
 
--   **GET** `/auth/user-profile` demande de profil.
+-   **GET** `/user-profile` demande de profil.
 
     -   Doit contenir un jeton valide dans l'entête
 
@@ -734,6 +735,111 @@ Toutes les requêtes commence par : `http://127.0.0.1:8000/api` ou `http://local
 
     -   Doit contenir un jeton valide dans l'entête
     -   Renvoie la même chose que précédemment avec le jeu en moins
+
+
+## Les requêtes d'accès aux autres donnees
+
+-   **GET** `/mecanics` demande de la liste des mécaniques.
+
+    -   Renvoie
+
+        ```
+        {
+            "success": true,
+            "code": 200,
+            "locale": "fr",
+            "message": "Request Ok",
+            "data": {
+                "items": [
+                    {
+                        "id": 1,
+                        "nom": "Abstrait"
+                    },
+                    {
+                        "id": 2,
+                        "nom": "Humour"
+                    },
+                    {
+                        "id": 3,
+                        "nom": "Jeu de plateau"
+                    },
+                    {
+                        "id": 4,
+                        "nom": "Enquêtes & Mystères"
+                    },
+                    ...
+                ]
+            }
+        }
+       ```
+
+-   **GET** `/editeurs` demande de la liste des éditeurs.
+
+    -   Renvoie
+
+        ```
+        {
+            "success": true,
+            "code": 200,
+            "locale": "fr",
+            "message": "Request Ok",
+            "data": {
+                "items": [
+                    {
+                        "id": 1,
+                        "nom": "1-2-3-Games"
+                    },
+                    {
+                        "id": 2,
+                        "nom": "ADG"
+                    },
+                    {
+                        "id": 3,
+                        "nom": "Arkhane Asylum Publishing"
+                    },
+                    {
+                        "id": 4,
+                        "nom": "Bayard Jeux"
+                    },
+                    ...
+                ]
+            }
+        }
+       ```
+
+-   **GET** `/themes` demande de la liste des thèmes.
+
+    -   Renvoie
+
+        ```
+        {
+            "success": true,
+            "code": 200,
+            "locale": "fr",
+            "message": "Request Ok",
+            "data": {
+                "items": [
+                    {
+                        "id": 1,
+                        "nom": "Abstrait, lettres & mots"
+                    },
+                    {
+                        "id": 2,
+                        "nom": "Animaux & Nature"
+                    },
+                    {
+                        "id": 3,
+                        "nom": "Autres"
+                    },
+                    {
+                        "id": 4,
+                        "nom": "Cartoon & Dessin"
+                    },
+                    ...
+                ]
+            }
+        }
+       ```
 
 
 
