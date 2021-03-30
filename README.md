@@ -1,4 +1,14 @@
-## Commandes à exécuter pour le projet tutoré 
+# API pour le projet tutoré
+
+## Sommaire
+
+Pour commencer, voici la [Liste des commandes](#listes-des-commandes-à-exécuter-dans-lordre).
+
+Si vous le souhaitez vous pouvez consulter [les explications](#les-explications).
+
+Enfin des exemples et des conseils se trouvent [en bas de cette page](#les-requêtes-pour-utiliser-lapi).
+
+## Listes des commandes à exécuter dans l'ordre
 
 ```shell
 cp .env.example .env
@@ -11,6 +21,7 @@ composer update
 php artisan jwt:secret
 php artisan migrate:fresh 
 php artisan db:seed
+php artisan serve
 ```
 
 
@@ -19,6 +30,7 @@ php artisan db:seed
 > Si vous utilisez un mot de passe différent, il faut modifier la valeur de la variable `JWT_PASSPHRASE` 
 > dans le fichier `.env`.
 
+## Les explications
 
 
 ## Base de données
@@ -174,7 +186,7 @@ Toutes les requêtes commence par : `http://127.0.0.1:8000/api`
 
 ### Les requêtes d'authentification
 
--   **POST** `/login` demande de connexion.
+-   **GET** `/login` demande de connexion.
 
     -   Doit comporter les propriétes suivantes :
         ```
