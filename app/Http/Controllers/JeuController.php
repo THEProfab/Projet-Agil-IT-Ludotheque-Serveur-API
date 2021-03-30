@@ -53,7 +53,7 @@ class JeuController extends Controller {
 
     function show($id) {
         $jeu = Jeu::findOrFail($id);
-        return ResponseBuilder::success(new jeuxDetailsResource($jeu), 200, null);
+        return ResponseBuilder::success(new JeuxDetailsResource($jeu), 200, null);
     }
 
     function store(Request $request) {
