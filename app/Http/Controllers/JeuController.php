@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\JeuxDetailsResource;
+use App\Http\Resources\jeuxResource;
 use App\Models\Jeu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,7 +13,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use MarcinOrlowski\ResponseBuilder\ResponseBuilder;
 
-class JeuController extends Controller {
+class jeuController extends Controller {
 /*    public function __construct() {
         $this->middleware('api', ['except' => ['index', 'show']]);
     }*/
@@ -54,7 +55,7 @@ class JeuController extends Controller {
             $jeux = Jeu::all();
         }
 
-        return ResponseBuilder::success(jeuxResource::collection($jeux), 200, null);
+        return ResponseBuilder::success(JeuxResource::collection($jeux), 200, null);
     }
 
     function show($id) {
