@@ -440,7 +440,8 @@ Toutes les requêtes commence par : `http://127.0.0.1:8000/api`
             "nombre_joueurs": 8,
             "categorie": "Jeux de cartes",
             "duree": "1 heure 15mns",
-            "regles": "<html><head></head><body><p>C'est le jeu</p></body></html>"
+            "regles": "<html><head></head><body><p>C'est le jeu</p></body></html>",
+            "mecaniques": [ 23, 25, 27]
         }        
         ```
         
@@ -482,7 +483,21 @@ Toutes les requêtes commence par : `http://127.0.0.1:8000/api`
                     "editeur_id": {
                         "id": 25,
                         "nom": "Pleasant Company Games"
-                    }
+                    },
+                    "mecaniques": [
+                        {
+                            "id": 23,
+                            "nom": "Cuisine"
+                        },
+                        {
+                            "id": 25,
+                            "nom": "Divers"
+                        },
+                        {
+                            "id": 27,
+                            "nom": "choix multiples"
+                        }
+                    ]
                 }
             }
         }        

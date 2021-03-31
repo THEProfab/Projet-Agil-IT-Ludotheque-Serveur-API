@@ -14,6 +14,13 @@ use Illuminate\Validation\Rule;
 use MarcinOrlowski\ResponseBuilder\ResponseBuilder;
 
 class JeuController extends Controller {
+/*    public function __construct() {
+        $this->middleware('api', ['except' => ['index', 'show']]);
+    }*/
+
+
+
+
     function index(Request $request) {
         $userId = $request->get('user', null);
         $themeId = $request->get('theme', null);
@@ -57,7 +64,9 @@ class JeuController extends Controller {
     }
 
     function store(Request $request) {
-        Log::info('Requête : '.json_encode($request));
+        $this->middleware('auth:api');
+
+        Log::info('Requête : ' . json_encode($request));
         $validator = Validator::make($request->all(),
             [
                 'nom' => 'required|unique:jeux|between:10,100',
@@ -97,7 +106,7 @@ class JeuController extends Controller {
         $jeu->theme_id = $request->theme;
         $jeu->user_id = Auth::user()->id;
         $jeu->editeur_id = $request->editeur;
-        $jeu->url_media = $request->get('url_media','images/no-image.png');
+        $jeu->url_media = $request->get('url_media', 'images/no-image.png');
         $jeu->langue = $request->langue;
         $jeu->age = $request->age;
         $jeu->poids = $request->poids;
@@ -105,6 +114,12 @@ class JeuController extends Controller {
         $jeu->duree = $request->duree;
         $jeu->regles = $request->regles;
         $jeu->categorie = $request->categorie;
+        $jeu->save();
+        if (isset($request->mecaniques)) {
+            Log::info($request->mecaniques);
+            $jeu->mecaniques()->attach($request->mecaniques);
+        }
+        $jeu->save();
 
         /*
          *  Code en attente traitement de l'upload d'image
@@ -123,8 +138,6 @@ class JeuController extends Controller {
                     $jeu->url_media = '/imagesjeux/'.$filename;
                 );
         */
-
-        $jeu->mecaniques()->attach($request->avec_mecaniques);
         $jeu->save();
         return ResponseBuilder::success(new JeuxResource($jeu));
     }
