@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\jeuxDetailsResource;
-use App\Http\Resources\jeuxResource;
+use App\Http\Resources\JeuxDetailsResource;
 use App\Models\Jeu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
