@@ -389,6 +389,20 @@ Toutes les requêtes commence par : `http://127.0.0.1:8000/api`
                         },
                         ...
                     ],
+                    "mecaniques": [
+                        {
+                            "id": 5,
+                            "nom": "Antiquité"
+                        },
+                        {
+                            "id": 1,
+                            "nom": "Abstrait"
+                        },
+                        {
+                            "id": 15,
+                            "nom": "Contes"
+                        }
+                    ],
                     "statistiques": {
                         "noteMax": "5",
                         "noteMin": "1",

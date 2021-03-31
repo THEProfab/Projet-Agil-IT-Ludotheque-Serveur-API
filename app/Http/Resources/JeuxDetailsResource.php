@@ -91,7 +91,7 @@ class jeuxDetailsResource extends JsonResource {
             "user_id" => $this->user,
             "theme_id" => $this->theme,
             "editeur_id" => $this->editeur,
-//            "mecanique" => this->
+            "mecaniques" => MecaniquesResource::collection($this->mecaniques),
             "commentaires" => CommentaireResource::collection($this->commentaires),
             "statistiques" => [
                 "noteMax" => $noteMax,
