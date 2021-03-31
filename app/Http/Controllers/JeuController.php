@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\JeuxDetailsResource;
+use App\Http\Resources\JeuxResource;
 use App\Models\Jeu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -54,7 +55,7 @@ class JeuController extends Controller {
             $jeux = Jeu::all();
         }
 
-        return ResponseBuilder::success(jeuxResource::collection($jeux), 200, null);
+        return ResponseBuilder::success(JeuxResource::collection($jeux), 200, null);
     }
 
     function show($id) {
