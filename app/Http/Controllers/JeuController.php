@@ -55,7 +55,7 @@ class jeuController extends Controller {
             $jeux = Jeu::all();
         }
 
-        return ResponseBuilder::success(JeuxResource::collection($jeux), 200, null);
+        return ResponseBuilder::success(jeuxResource::collection($jeux), 200, null);
     }
 
     function show($id) {

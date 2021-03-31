@@ -15,7 +15,7 @@ class UserProfilResource extends JsonResource {
         $jeux = [];
         foreach ($this->ludo_perso as $achat) {
             $jeux [] = [
-                "jeu" => new JeuxResource($achat),
+                "jeu" => new jeuxResource($achat),
                 "lieu" => $achat->achat->lieu,
                 "prix" => $achat->achat->prix,
                 "date_achat" => $achat->achat->date_achat,
