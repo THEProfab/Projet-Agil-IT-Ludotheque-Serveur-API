@@ -385,7 +385,16 @@ Toutes les requêtes commence par : `http://127.0.0.1:8000/api`
                             "date_com": "2020-12-25 09:49:55",
                             "note": "1",
                             "jeu_id": "15",
-                            "user_id": "8"
+                            "user": {
+                                "id": 1,
+                                "nom": "Duchmol",
+                                "prenom": "Julie",
+                                "pseudo": "Julie Duchmol",
+                                "email": "julie.duchmol@gmail.com",
+                                "email_verified_at": "2021-03-26T15:54:40.000000Z",
+                                "created_at": "2021-03-26T15:54:40.000000Z",
+                                "updated_at": "2021-03-26T18:09:15.000000Z"
+                            }
                         },
                         ...
                     ],
@@ -537,7 +546,16 @@ Toutes les requêtes commence par : `http://127.0.0.1:8000/api`
                         "timezone": "CET"
                     },
                     "jeu_id": 10,
-                    "user_id": 1,
+                    "user": {
+                        "id": 1,
+                        "nom": "Duchmol",
+                        "prenom": "Julie",
+                        "pseudo": "Julie Duchmol",
+                        "email": "julie.duchmol@gmail.com",
+                        "email_verified_at": "2021-03-26T15:54:40.000000Z",
+                        "created_at": "2021-03-26T15:54:40.000000Z",
+                        "updated_at": "2021-03-26T18:09:15.000000Z"
+                    },
                     "id": 201
                 }
             }
