@@ -75,7 +75,7 @@ class JeuController extends Controller {
                 'description.required' => 'La description est requise',
                 'theme.required' => 'Le thème est requis',
                 'editeur.required' => 'L\'éditeur est requis',
-                'langue.required' => 'la langues est requise',
+                'langue.required' => 'la langue est requise',
                 'age.required' => 'l\'age est requis',
                 'numeric' => ':attribute est un entier',
                 'between' => ':attribute doit être entre :min et :max',
@@ -126,9 +126,7 @@ class JeuController extends Controller {
 
         $jeu->mecaniques()->attach($request->avec_mecaniques);
         $jeu->save();
-
-        return ResponseBuilder::success(new jeuxResource($jeu));
-
+        return ResponseBuilder::success(new JeuxResource($jeu));
     }
 
 
