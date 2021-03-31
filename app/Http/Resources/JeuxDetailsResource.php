@@ -7,7 +7,7 @@ use App\Models\Jeu;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\DB;
 
-class jeuxDetailsResource extends JsonResource {
+class JeuxDetailsResource extends JsonResource {
     /**
      * Transform the resource into an array.
      *

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\CommentaireResource;
-use App\Http\Resources\jeuxResource;
+use App\Http\Resources\JeuxResource;
 use App\Models\Commentaire;
 use App\Models\Jeu;
 use Illuminate\Http\Request;

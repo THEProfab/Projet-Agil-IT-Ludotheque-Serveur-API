@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class jeuxResource extends JsonResource {
+class JeuxResource extends JsonResource {
     /**
      * Transform the resource into an array.
      *
@@ -27,7 +27,7 @@ class jeuxResource extends JsonResource {
             "user_id" => $this->user,
             "theme_id" => $this->theme,
             "editeur_id" => $this->editeur,
-            "mecaniques" => MecaniquesResource::collection($this->mecaniques)
+            "mecaniques" => MecaniquesResource::collection($this->mecaniques())
         ];
 //        return parent::toArray($request);
     }
