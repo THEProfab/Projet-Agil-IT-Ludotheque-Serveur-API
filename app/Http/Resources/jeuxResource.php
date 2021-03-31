@@ -26,7 +26,8 @@ class jeuxResource extends JsonResource {
             "duree" => $this->duree,
             "user_id" => $this->user,
             "theme_id" => $this->theme,
-            "editeur_id" => $this->editeur
+            "editeur_id" => $this->editeur,
+            "mecaniques" => MecaniquesResource::collection($this->mecaniques)
         ];
 //        return parent::toArray($request);
     }

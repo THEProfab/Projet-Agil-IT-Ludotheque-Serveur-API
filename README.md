@@ -352,7 +352,7 @@ Toutes les requêtes commence par : `http://127.0.0.1:8000/api`
                     "id": 15,
                     "nom": "sed assumenda",
                     "description": "Itaque sed veniam iure est et. Culpa accusamus aut commodi explicabo ullam nemo quia. Enim doloribus nihil quisquam fugit. Provident est velit totam ipsum velit. Laudantium amet blanditiis hic aut vel. Molestias ratione et corrupti. Consequatur dolorem nihil quo tenetur quibusdam corrupti.",
-                    "regles": "<html><head><title>Esse repellat laborum necessitatibus consequatur enim consequatur.</title></head><body><form action=\"example.org\" method=\"POST\"><label for=\"username\">amet</label><input type=\"text\" id=\"username\"><label for=\"password\">id</label><input type=\"password\" id=\"password\"></form><div class=\"earum\"><p>Quae temporibus dolorum exercitationem id eligendi eum cum et sit.</p><span>Repellat.</span><span>Quod voluptatibus pariatur voluptatum inventore enim.</span></div><div id=\"46344\"><a href=\"example.com\">Quia quia tempora.</a><ul><li>Animi perferendis.</li><li>Inventore accusantium voluptatibus consequuntur aut animi.</li><li>Sit.</li><li>Incidunt illo itaque quo quia similique.</li><li>Quis ipsa laudantium.</li></ul></div></body></html>\n",
+                    "regles": "<html><head><title>Esse repellat laborum necessitatibus consequatur enim consequatur.</title></head><body><div class=\"earum\"><p>Quae temporibus dolorum exercitationem id eligendi eum cum et sit.</p><span>Repellat.</span><span>Quod voluptatibus pariatur voluptatum inventore enim.</span></div><div id=\"46344\"><a href=\"example.com\">Quia quia tempora.</a><ul><li>Animi perferendis.</li><li>Inventore accusantium voluptatibus consequuntur aut animi.</li><li>Sit.</li><li>Incidunt illo itaque quo quia similique.</li><li>Quis ipsa laudantium.</li></ul></div></body></html>\n",
                     "langue": "Anglais",
                     "url_media": "http://localhost:8000/images/no-image.png",
                     "age": "14",
@@ -388,6 +388,20 @@ Toutes les requêtes commence par : `http://127.0.0.1:8000/api`
                             "user_id": "8"
                         },
                         ...
+                    ],
+                    "mecaniques": [
+                        {
+                            "id": 5,
+                            "nom": "Antiquité"
+                        },
+                        {
+                            "id": 1,
+                            "nom": "Abstrait"
+                        },
+                        {
+                            "id": 15,
+                            "nom": "Contes"
+                        }
                     ],
                     "statistiques": {
                         "noteMax": "5",
@@ -426,7 +440,8 @@ Toutes les requêtes commence par : `http://127.0.0.1:8000/api`
             "nombre_joueurs": 8,
             "categorie": "Jeux de cartes",
             "duree": "1 heure 15mns",
-            "regles": "<html><head></head><body><p>C'est le jeu</p></body></html>"
+            "regles": "<html><head></head><body><p>C'est le jeu</p></body></html>",
+            "mecaniques": [ 23, 25, 27]
         }        
         ```
         
@@ -468,7 +483,21 @@ Toutes les requêtes commence par : `http://127.0.0.1:8000/api`
                     "editeur_id": {
                         "id": 25,
                         "nom": "Pleasant Company Games"
-                    }
+                    },
+                    "mecaniques": [
+                        {
+                            "id": 23,
+                            "nom": "Cuisine"
+                        },
+                        {
+                            "id": 25,
+                            "nom": "Divers"
+                        },
+                        {
+                            "id": 27,
+                            "nom": "choix multiples"
+                        }
+                    ]
                 }
             }
         }        
